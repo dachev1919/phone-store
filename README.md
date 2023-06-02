@@ -1,3 +1,3 @@
 # Practicing React for fun
 
-[Live Result](https://github.com/facebook/create-react-app).
+[Live Result](https://dachev1919.github.io/phone-store/).
