@@ -7,16 +7,21 @@ import sprite from '../../assets/images/sprite.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../../store/user/userSlice";
 import { useEffect, useState } from "react";
+import { useGetProductsQuery } from "../../../store/api/apiSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [searchValue, setSearchValue] = useState('');
   const { currentUser } = useSelector(({user}) => user);
 
   const [values, setValues] = useState({
     name: 'Guest',
     avatar: avatar
   });
+
+  const { data, isLoading } = useGetProductsQuery({title: searchValue});
 
   useEffect(() => {
     if (!currentUser) return;
@@ -28,6 +33,10 @@ const Header = () => {
   const clickHandler = () => {
     if (!currentUser) dispatch(toggleForm(true));
     else navigate(ROUTES.PROFILE)
+  }
+
+  const searchHandler = ({ target: { value } }) => {
+    setSearchValue(value);
   }
 
   return (
@@ -56,10 +65,22 @@ const Header = () => {
               name='search'
               placeholder='Search for anything...'
               autoComplete='off'
-              onChange={() => {}}
+              onChange={searchHandler}
+              value={searchValue}
             />
           </div>
-          {/*<div className={styles.box}></div>*/}
+          {
+            searchValue && <div className={styles.box}>
+              {isLoading ? 'Loading...' : !data.length ? 'No Results' : (data.map(({title, images, id}) => {
+                return (
+                  <Link key={id} onClick={() => setSearchValue('')} to={`/phone-store/products/${id}`} className={styles.item}>
+                    <div className={styles.image} style={{ backgroundImage: `url(${images[0]})`}}/>
+                    <div className={styles.title}>{title}</div>
+                  </Link>
+                )
+              })) }
+            </div>
+          }
         </form>
 
         <div className={styles.account}>
