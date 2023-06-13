@@ -6,6 +6,7 @@ import Sidebar from "../sidebar/Sidebar";
 import { useDispatch } from "react-redux";
 import { getCategories } from "../../../store/categories/categoriesSlice";
 import { getProducts } from "../../../store/products/productSlice";
+import UserForm from "../user/UserForm";
 
 const Layout = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Layout = () => {
         </Routers>
       </div>
       <Footer />
+      <UserForm />
     </div>
   );
 };
