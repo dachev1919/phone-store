@@ -5,20 +5,15 @@
 
 .list {
   margin-top: 24px;
-  display: flex;
+  display: grid;
   gap: 20px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(226px, 1fr));
 }
 
 .product {
   background: var(--bg);
   border-radius: 8px;
   overflow: hidden;
-  width: calc(100% / 5 - 20px);
-}
-
-.product:nth-child(5n) {
-  width: calc(100% / 5);
 }
 
 .image {
@@ -91,3 +86,4 @@
   margin-top: 24px;
   text-align: center;
 }
+
