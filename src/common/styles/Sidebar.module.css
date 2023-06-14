@@ -1,7 +1,8 @@
 .sidebar {
   width: 304px;
   padding: 24px;
-  height: 423px;
+  height: auto;
+  min-height: 423px;
   display: flex;
   flex-direction: column;
 }
@@ -36,5 +37,18 @@
 .footer {
   margin-top: auto;
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 576px) and (max-width: 1274px) {
+  .sidebar {
+    width: calc(170px + (304 - 170) * (100vw - 576px) / (1274 - 576));
+  }
+}
+@media screen and (max-width: 575px) {
+  .sidebar {
+    width: 100%;
+  }
 }

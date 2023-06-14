@@ -1,5 +1,6 @@
 import styles from '../../../../common/styles/Home.module.css';
 import image from '../../../../common/assets/images/banner.png';
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -9,7 +10,7 @@ const Banner = () => {
           NEW YEAR
           <span>SALE</span>
         </p>
-        <button className={styles.more}>See More</button>
+        <Link to='/phone-store/categories/2'><button className={styles.more}>See More</button></Link>
       </div>
 
       <div className={styles.right} style={{backgroundImage: `url(${image})`}}>

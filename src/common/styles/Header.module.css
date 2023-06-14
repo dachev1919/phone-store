@@ -4,7 +4,16 @@
   align-items: center;
   padding: 25px 20px;
 }
-
+.header.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: 5px 5px 15px -5px rgba(255, 255, 255, .02);
+  animation-name: stickyHeader;
+  animation-duration: .3s;
+  z-index: 97;
+  background-color: var(--bg);
+}
 .logo {
   width: 304px;
 }
@@ -21,6 +30,7 @@
   align-items: center;
   column-gap: 10px;
   cursor: pointer;
+  margin: 0 15px 0 10px;
 }
 
 .avatar {
@@ -51,31 +61,6 @@
   position: relative;
 }
 
-.icon {
-  width: 13px;
-  height: 13px;
-}
-
-.icon svg {
-  width: 100%;
-  height: 100%;
-  fill: var(--dark-sea);
-}
-
-.input {
-  flex-grow: 1;
-}
-
-.input input {
-  font-family: Montserrat, Roboto, sans-serif;
-  font-size: 12px;
-  line-height: 14px;
-  color: var(--grey);
-  background: none;
-  outline: none;
-  width: 100%;
-}
-
 .account {
   display: flex;
   align-items: center;
@@ -89,6 +74,7 @@
 .account svg {
   width: 24px;
   height: 24px;
+  transition: all .3s ease;
 }
 
 .icon-fav {
@@ -96,7 +82,7 @@
   fill: none;
 }
 
-.icon-cart {
+.header-icon {
   fill: var(--grey);
 }
 
@@ -104,8 +90,9 @@
   stroke: var(--white);
 }
 
-.icon-cart:hover {
+.header-icon:hover {
   fill: var(--white);
+  cursor: pointer;
 }
 
 .cart {
@@ -166,4 +153,70 @@
   border-radius: 6px;
   height: 50px;
   width: 50px;
+}
+
+.icon {
+  width: 13px;
+  height: 13px;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--dark-sea);
+}
+
+.input {
+  flex-grow: 1;
+}
+
+.input input {
+  font-family: Montserrat, Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--grey);
+  background: none;
+  outline: none;
+  width: 100%;
+}
+.search-mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+  .info {
+    justify-content: end;
+  }
+  .account {
+    position: relative;
+  }
+  .search-mobile {
+    display: flex;
+  }
+  .form {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all .3s ease;
+    position: absolute;
+    right: -10px;
+    top: 150%;
+  }
+  .form.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stickyHeader {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
