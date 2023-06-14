@@ -56,7 +56,7 @@ const userSlice = createSlice({
   reducers: {
     addProductToCart: (state, {payload}) => {
       let newCart = [...state.cart];
-      const productInCart = state.cart.find(id => id === payload.id);
+      const productInCart = state.cart.find(({ id }) => id === payload.id);
 
       if (productInCart) {
         newCart = newCart.map(item => {
@@ -75,6 +75,9 @@ const userSlice = createSlice({
     },
     toggleFormType: (state, { payload }) => {
       state.formType = payload;
+    },
+    removeProductFromCart: (state, {payload}) => {
+      state.cart = state.cart.filter(({id}) => id !== payload)
     }
   },
   extraReducers: (builder) => {
@@ -90,5 +93,5 @@ const userSlice = createSlice({
   }
 });
 
-export const { addItemToCart, toggleForm, toggleFormType } = userSlice.actions;
+export const { addProductToCart, toggleForm, toggleFormType, removeProductFromCart } = userSlice.actions;
 export default userSlice.reducer;

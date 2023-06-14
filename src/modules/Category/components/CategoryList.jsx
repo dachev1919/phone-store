@@ -71,6 +71,12 @@ const CategoryList = () => {
     setParams({...params, ...values});
   }
 
+  const resetHandler = () => {
+    setValues(defaultValues);
+    setParams(defaultParams)
+    setIsEnd(false);
+  }
+
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>{ category }</h2>
@@ -112,7 +118,7 @@ const CategoryList = () => {
         : !isSuccess || !items.length ? (
           <div className={styles.back}>
             <span>No results</span>
-            <button>Reset</button>
+            <button onClick={resetHandler}>Reset</button>
           </div>
         ) : (
           <Products

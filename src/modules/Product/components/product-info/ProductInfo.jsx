@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../utils/routes";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "../../../../store/user/userSlice";
+import { addProductToCart } from "../../../../store/user/userSlice";
 
 const SIZES = [4, 4.5, 5];
 
@@ -21,7 +21,7 @@ const ProductInfo = (product) => {
   }, [images]);
 
   const addToCart = () => {
-    dispatch(addItemToCart(product));
+    dispatch(addProductToCart(product));
   }
 
   return (
