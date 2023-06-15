@@ -1,5 +1,5 @@
 .cart {
-  width: calc(100% - 324px);
+  flex: 1;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
@@ -28,9 +28,9 @@
   display: grid;
   grid-template-columns: 100px 2fr 1fr 1.5fr 1fr 16px;
   align-items: center;
-  height: 70px;
+  gap: 10px;
+  min-height: 70px;
 }
-
 .image {
   background-position: center;
   background-repeat: no-repeat;
@@ -40,10 +40,9 @@
 }
 
 .info {
-  margin-left: 16px;
   display: flex;
   flex-direction: column;
-  row-gap: 4px;
+  gap: 4px;
 }
 
 .name {
@@ -66,6 +65,7 @@
 .quantity {
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
 .quantity span {
@@ -134,4 +134,50 @@
 
 .total span {
   color: #fff;
+}
+
+@media screen and (max-width: 991px) {
+  .image {
+    grid-area: image;
+  }
+  .info {
+    grid-area: info;
+  }
+  .price {
+    grid-area: price;
+  }
+  .quantity {
+    grid-area: quantity;
+  }
+  .close {
+    grid-area: close;
+  }
+  .total {
+    grid-area: total;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 991px) {
+  .item {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "image info info price price close"
+    "_ _ _ quantity quantity total";
+  }
+  .image {
+    min-height: 60px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .item {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "image image info info info price"
+    "_ _ quantity quantity total close";
+  }
+  .image {
+    min-height: 60px;
+  }
 }

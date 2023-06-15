@@ -21,7 +21,7 @@ const Cart = () => {
            </div>
 
            <div className={styles.actions}>
-             <div className={styles.total}>TOTAL PRICE: <span>{sumBy(cart.map(({quantity, price}) => quantity * price))}</span></div>
+             <div className={styles.total}>TOTAL PRICE: <span>{sumBy(cart.map(({quantity, price}) => quantity * price))}$</span></div>
            </div>
          </>
         )
