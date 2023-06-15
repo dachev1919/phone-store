@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/phone-store/static/css/main.ce63241a.css",
+    "main.js": "/phone-store/static/js/main.ddccf50b.js",
+    "static/media/computer.png": "/phone-store/static/media/computer.5e56530d0ea3793fd73d.png",
+    "static/media/banner.png": "/phone-store/static/media/banner.60b57e7c22678c62bf30.png",
+    "static/media/avatar.jpg": "/phone-store/static/media/avatar.4bc3b938691acbda7100.jpg",
+    "static/media/devices.png": "/phone-store/static/media/devices.a0974f63230d0b90cbec.png",
+    "static/media/shoe.png": "/phone-store/static/media/shoe.db601c8f04844976b606.png",
+    "static/media/logo.svg": "/phone-store/static/media/logo.fb6afde46b43989ab58d298634d1c757.svg",
+    "static/media/sprite.svg": "/phone-store/static/media/sprite.1fec2d1cd5018a1d8054f7379621b9ce.svg",
+    "index.html": "/phone-store/index.html",
+    "main.ce63241a.css.map": "/phone-store/static/css/main.ce63241a.css.map",
+    "main.ddccf50b.js.map": "/phone-store/static/js/main.ddccf50b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce63241a.css",
+    "static/js/main.ddccf50b.js"
+  ]
+}
